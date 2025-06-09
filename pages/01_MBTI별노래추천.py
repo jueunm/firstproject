@@ -57,22 +57,7 @@ if emotion_input:
         st.balloons()
         st.subheader(f"✨ {mbti} + {emotion} 기분에 어울리는 플레이리스트 🎶")
 
-        for _, row in filtered.iterrows():
-            # 유튜브 썸네일 이미지 URL 추출
-            video_id = row["youtube_url"].split("v=")[1].split("&")[0]
-            thumbnail_url = f"https://img.youtube.com/vi/{video_id}/0.jpg"
 
-            # 카드 스타일 출력
-            with st.container():
-                cols = st.columns([1, 3])
-                with cols[0]:
-                    st.image(thumbnail_url, use_column_width=True)
-                with cols[1]:
-                    st.markdown(f"""
-                    **🎵 {row['song_title']}**  
-                    _"{row['lyric_line']}"_  
-                    [▶️ 유튜브에서 듣기]({row['youtube_url']})  
-                    """)
         # 추천 이유 (대표 한 곡 기준)
         st.markdown(f"💡 추천 이유: {filtered.iloc[0]['reason']}")
 
